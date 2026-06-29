@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Welcome to The Exhale | BLOOM with Quadia</title>
+<meta name="description" content="Your first lesson of The Exhale is on its way. Take a breath. You have already begun." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #271630; --plum: #3A2240; --plum-deep: #20122A;
+    --ink-body: rgba(239,226,214,0.86); --gold: #A9863F; --gold-light: #C9A875;
+    --gold-soft: rgba(201,168,117,0.4); --rose: #BC8A82; --cream: #F3EBDC; --paper: #FCF8F0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    font-family: "Inter", sans-serif; color: var(--ink-body);
+    background:
+      radial-gradient(70% 55% at 50% 26%, rgba(188,138,130,0.24), transparent 68%),
+      linear-gradient(165deg, var(--plum), var(--plum-deep));
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    display: flex; flex-direction: column;
+    line-height: 1.78; font-size: 1.12rem;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { width: min(680px, calc(100% - 3rem)); margin: 0 auto; }
+  .stage { flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; padding: 5rem 0; position: relative; overflow: hidden; }
+  .breath { position: absolute; top: 50%; left: 50%; width: min(86vw, 620px); aspect-ratio: 1; transform: translate(-50%,-50%); pointer-events: none; z-index: 0; }
+  .breath span { position: absolute; inset: 0; margin: auto; border-radius: 50%; border: 1px solid var(--gold-soft); opacity: 0.34; animation: breathe 9s ease-in-out infinite; }
+  .breath span:nth-child(1){ width:40%; height:40%; }
+  .breath span:nth-child(2){ width:66%; height:66%; animation-delay:.4s; border-color:rgba(188,138,130,0.4); }
+  .breath span:nth-child(3){ width:92%; height:92%; animation-delay:.8s; border-color:rgba(201,168,117,0.24); }
+  @keyframes breathe { 0%,100%{ transform:scale(1); opacity:.16 } 45%{ transform:scale(1.07); opacity:.4 } }
+  .inner { position: relative; z-index: 2; }
+  .eyebrow { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.8rem; display: block; }
+  h1 { font-family: "Cormorant Garamond", serif; font-weight: 400; color: #FBF2E8; font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.05; margin: 0 auto 1.5rem; max-width: 16ch; }
+  h1 em { font-style: italic; color: var(--gold-light); }
+  .lede { font-size: clamp(1.1rem, 2.2vw, 1.28rem); line-height: 1.7; max-width: 44ch; margin: 0 auto 2.6rem; color: rgba(239,226,214,0.88); }
+  .steps { list-style: none; padding: 0; margin: 0 auto 2.8rem; max-width: 30rem; text-align: left; }
+  .steps li { position: relative; padding: 0.85rem 0 0.85rem 2.6rem; border-bottom: 1px solid rgba(243,231,223,0.14); font-size: 1.02rem; line-height: 1.55; color: rgba(239,226,214,0.84); }
+  .steps li:last-child { border-bottom: none; }
+  .steps li .n { position: absolute; left: 0; top: 0.85rem; font-family: "Cormorant Garamond", serif; font-size: 1.15rem; color: var(--gold-light); }
+  .steps li b { color: #FBF2E8; font-weight: 600; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 1.15rem 2.3rem; border-radius: 2px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; background: var(--gold); color: #2A1A12; transition: background 0.35s ease, transform 0.35s ease; }
+  .btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .whisper { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: clamp(1.4rem, 3vw, 1.9rem); color: var(--gold-light); margin: 0 auto 2.4rem; max-width: 26ch; line-height: 1.4; }
+  .note { margin-top: 2.4rem; font-size: 0.9rem; color: rgba(239,226,214,0.6); }
+  .note a { color: var(--gold-light); border-bottom: 1px solid var(--gold-soft); }
+  footer { text-align: center; padding: 2.4rem 0 2.8rem; border-top: 1px solid rgba(243,231,223,0.12); }
+  footer .fm { font-family: "Cormorant Garamond", serif; font-weight: 600; letter-spacing: 0.34em; color: #FBF2E8; font-size: 1.1rem; padding-left: 0.34em; }
+  footer p { font-size: 0.78rem; color: rgba(239,226,214,0.46); margin: 0.7rem 0 0; letter-spacing: 0.05em; }
+  @media (prefers-reduced-motion: reduce) { .breath span { animation: none; opacity: 0.3; } .btn:hover { transform: none; } }
+</style>
+</head>
+<body>
+  <main class="stage">
+    <div class="breath" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="wrap inner">
+      <span class="eyebrow">You have already begun</span>
+      <h1>Take a breath. <em>The first one is on its way.</em></h1>
+      <p class="whisper">Welcome to The Exhale.</p>
+      <p class="lede">Your first lesson is arriving in your inbox now. There is nothing to schedule and nothing to manage. You simply begin.</p>
+
+      <ul class="steps">
+        <li><span class="n">I</span><b>Check your inbox</b> in the next few minutes for your first lesson.</li>
+        <li><span class="n">II</span><b>Add quadia@bloomwithquadia.com</b> to your contacts so every letter arrives gently.</li>
+        <li><span class="n">III</span><b>Begin when you are ready.</b> A new lesson follows each day, at your own pace.</li>
+      </ul>
+
+      <a class="btn" href="https://rose-era-reset-bloom.netlify.app/">Enter your BLOOM space</a>
+
+      <p class="note">Nothing in your inbox yet? Look in spam or promotions, or write to <a href="mailto:quadia@bloomwithquadia.com">quadia@bloomwithquadia.com</a> and we will make sure it reaches you.</p>
+    </div>
+  </main>
+  <footer>
+    <div class="fm">BLOOM</div>
+    <p>The Exhale &nbsp;·&nbsp; Because exhaustion is not excellence</p>
+  </footer>
+</body>
+</html>

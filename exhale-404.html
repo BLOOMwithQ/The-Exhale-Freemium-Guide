@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>This page is resting | BLOOM with Quadia</title>
+<meta name="description" content="The page you are looking for has wandered off to rest. Find your way back to The Exhale." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --plum: #3A2240; --plum-deep: #20122A; --gold: #A9863F; --gold-light: #C9A875;
+    --gold-soft: rgba(201,168,117,0.4); --cream: #F3EBDC;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    font-family: "Inter", sans-serif; color: rgba(239,226,214,0.84);
+    background:
+      radial-gradient(68% 52% at 50% 30%, rgba(188,138,130,0.22), transparent 68%),
+      linear-gradient(165deg, var(--plum), var(--plum-deep));
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; line-height: 1.75; font-size: 1.12rem;
+    position: relative; overflow: hidden;
+  }
+  .breath { position: absolute; top: 50%; left: 50%; width: min(86vw, 640px); aspect-ratio: 1; transform: translate(-50%,-50%); pointer-events: none; z-index: 0; }
+  .breath span { position: absolute; inset: 0; margin: auto; border-radius: 50%; border: 1px solid var(--gold-soft); opacity: 0.3; animation: breathe 9s ease-in-out infinite; }
+  .breath span:nth-child(1){ width:42%; height:42%; }
+  .breath span:nth-child(2){ width:70%; height:70%; animation-delay:.4s; border-color:rgba(188,138,130,0.36); }
+  .breath span:nth-child(3){ width:98%; height:98%; animation-delay:.8s; border-color:rgba(201,168,117,0.22); }
+  @keyframes breathe { 0%,100%{ transform:scale(1); opacity:.14 } 45%{ transform:scale(1.07); opacity:.36 } }
+  .wrap { position: relative; z-index: 2; width: min(620px, calc(100% - 3rem)); padding: 4rem 0; }
+  .num { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: clamp(4.5rem, 16vw, 9rem); color: var(--gold-light); line-height: 0.9; margin-bottom: 0.6rem; }
+  .eyebrow { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; display: block; }
+  h1 { font-family: "Cormorant Garamond", serif; font-weight: 400; color: #FBF2E8; font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.1; margin: 0 auto 1.4rem; max-width: 18ch; }
+  h1 em { font-style: italic; color: var(--gold-light); }
+  p.lede { font-size: 1.14rem; max-width: 40ch; margin: 0 auto 2.6rem; color: rgba(239,226,214,0.84); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 1.15rem 2.3rem; border-radius: 2px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; background: var(--gold); color: #2A1A12; transition: background 0.35s ease, transform 0.35s ease; }
+  .btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .fm { margin-top: 3rem; font-family: "Cormorant Garamond", serif; font-weight: 600; letter-spacing: 0.34em; color: rgba(251,242,232,0.8); font-size: 1.05rem; padding-left: 0.34em; }
+  @media (prefers-reduced-motion: reduce) { .breath span { animation: none; opacity: 0.28; } .btn:hover { transform: none; } }
+</style>
+</head>
+<body>
+  <div class="breath" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="wrap">
+    <div class="num">404</div>
+    <span class="eyebrow">This page is resting</span>
+    <h1>The page you were looking for has <em>wandered off to rest.</em></h1>
+    <p class="lede">Some things are allowed to pause. Let this one be. When you are ready, find your way back to the beginning.</p>
+    <a class="btn" href="/the-exhale.html">Return to The Exhale</a>
+    <div class="fm">BLOOM</div>
+  </div>
+</body>
+</html>
