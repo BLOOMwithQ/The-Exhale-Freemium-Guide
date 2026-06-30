@@ -12,18 +12,18 @@
   --paper:    #FCF5EF;
 
   /* ---- wine / burgundy ---- */
-  --oxblood:  #5C1A2A;
-  --oxblood-2:#3F101C;
+  --oxblood:  #531B45;
+  --oxblood-2:#3A0F30;
 
   /* ---- deep plum-aubergine (drama / dark) ---- */
-  --noir:     #241019;
-  --noir-2:   #190A11;
+  --noir:     #251235;
+  --noir-2:   #160718;
 
   /* ---- ROSE accent (primary, display) — replaces amber role ---- */
-  --amber:    #B2384C;   /* raspberry rose */
-  --amber-2:  #C85E6E;   /* mid rose */
-  --amber-3:  #E4ADA7;   /* blush */
-  --amber-soft: rgba(178, 56, 76, 0.13);
+  --amber:    #C8466E;   /* rose pink (primary) */
+  --amber-2:  #D06E8E;   /* mid pink */
+  --amber-3:  #ECB2C6;   /* blush pink */
+  --amber-soft: rgba(200, 70, 110, 0.13);
 
   /* ---- GOLD accent (secondary, labels / metallic) ---- */
   --gold:     #9C7A38;   /* readable gold for label text */
@@ -66,7 +66,7 @@ body {
 
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
-::selection { background: rgba(188, 94, 30, 0.24); color: var(--ink); }
+::selection { background: rgba(200, 70, 110, 0.24); color: var(--ink); }
 
 .wrap { width: min(var(--maxw), calc(100% - 3rem)); margin-inline: auto; }
 .wrap-tight { width: min(1040px, calc(100% - 3rem)); margin-inline: auto; }
@@ -164,7 +164,7 @@ strong { font-weight: 600; color: inherit; }
 .instant { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--mono); font-size: 0.66rem;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--oxblood); margin-bottom: 0.9rem; }
 .instant .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); animation: pulse 2s infinite; }
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(178,56,76,0.5); } 70% { box-shadow: 0 0 0 8px rgba(178,56,76,0); } 100% { box-shadow: 0 0 0 0 rgba(178,56,76,0); } }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(200,70,110,0.5); } 70% { box-shadow: 0 0 0 8px rgba(200,70,110,0); } 100% { box-shadow: 0 0 0 0 rgba(200,70,110,0); } }
 .ml-slot { border: 1px dashed var(--line); border-radius: 4px; padding: 1rem; font-family: var(--mono); font-size: .68rem; color: var(--ink-mute); }
 
 /* ---------------- PHOTO PLACEHOLDERS ---------------- */
