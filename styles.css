@@ -72,7 +72,7 @@ a { color: inherit; text-decoration: none; }
 .wrap-tight { width: min(1040px, calc(100% - 3rem)); margin-inline: auto; }
 
 /* ---------------- TYPE PRIMITIVES ---------------- */
-h1, h2, h3 { margin: 0; font-family: "Bodoni Moda", serif; color: var(--ink); font-weight: 500; line-height: 0.96; letter-spacing: -0.015em; }
+h1, h2, h3 { margin: 0; font-family: "Bodoni Moda", serif; color: var(--ink); font-weight: 500; line-height: 0.98; letter-spacing: -0.015em; }
 em, .ital { font-style: italic; }
 strong { font-weight: 600; color: inherit; }
 .amber { color: var(--amber); }
@@ -146,7 +146,7 @@ strong { font-weight: 600; color: inherit; }
 
 /* ---------------- SIGNUP ---------------- */
 .signup { display: flex; gap: 0.6rem; max-width: 540px; flex-wrap: wrap; }
-.signup.center { margin-inline: auto; justify-content: center; }
+.signup.center { margin-inline: 0; justify-content: flex-start; }
 .signup input[type="email"] {
   flex: 1 1 260px; min-width: 0;
   border: 1.6px solid var(--line); background: var(--paper); border-radius: 2px;
@@ -161,6 +161,10 @@ strong { font-weight: 600; color: inherit; }
 .form-note b { color: var(--amber); font-weight: 700; }
 .on-dark .form-note { color: rgba(244,234,217,0.74); }
 .on-dark .form-note b { color: var(--amber-3); }
+.instant { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--mono); font-size: 0.66rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--oxblood); margin-bottom: 0.9rem; }
+.instant .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); animation: pulse 2s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(178,56,76,0.5); } 70% { box-shadow: 0 0 0 8px rgba(178,56,76,0); } 100% { box-shadow: 0 0 0 0 rgba(178,56,76,0); } }
 .ml-slot { border: 1px dashed var(--line); border-radius: 4px; padding: 1rem; font-family: var(--mono); font-size: .68rem; color: var(--ink-mute); }
 
 /* ---------------- PHOTO PLACEHOLDERS ---------------- */
@@ -211,14 +215,20 @@ strong { font-weight: 600; color: inherit; }
 /* =====================================================================
    MASTHEAD (fixed top bar — always visible, magazine style)
    ===================================================================== */
-.masthead {
-  position: fixed; inset: 0 0 auto 0; z-index: 90;
+.masthead { position: fixed; inset: 0 0 auto 0; z-index: 90; }
+.mh-announce { background: var(--oxblood); color: var(--cream); overflow: hidden; padding: 0.5rem 0; }
+.mh-announce .mh-track { display: inline-flex; white-space: nowrap; will-change: transform; animation: marquee 44s linear infinite; }
+.mh-announce .mh-track > span { display: inline-flex; align-items: center; }
+.mh-announce .mh-i { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0 1.5rem; }
+.mh-announce .star { color: var(--amber-3); padding: 0 0.2rem; }
+.mh-announce b { color: var(--gold-3); font-weight: 700; }
+.mh-nav {
   display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-  gap: 1rem; padding: 0.7rem clamp(1rem, 3vw, 2rem);
-  background: rgba(240, 228, 208, 0.86);
+  gap: 1rem; padding: 0.6rem clamp(1rem, 3vw, 2rem);
+  background: rgba(240, 228, 208, 0.9);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
   backdrop-filter: blur(12px) saturate(1.1);
   border-bottom: 1px solid var(--line);
-  transition: background .4s var(--ease);
 }
 .masthead .mh-l { font-family: "Bodoni Moda", serif; font-weight: 700; letter-spacing: 0.42em;
   font-size: 1rem; color: var(--oxblood); padding-left: 0.42em; }
@@ -237,7 +247,7 @@ strong { font-weight: 600; color: inherit; }
    ===================================================================== */
 .cover {
   position: relative; overflow: hidden;
-  padding: clamp(5.5rem, 11vh, 8rem) 0 clamp(2.5rem, 5vh, 4rem);
+  padding: clamp(7rem, 13vh, 9.5rem) 0 clamp(2.5rem, 5vh, 4rem);
   background:
     radial-gradient(55% 50% at 84% 24%, rgba(196,94,110,0.20), transparent 70%),
     linear-gradient(180deg, var(--ivory-2), var(--ivory));
@@ -377,7 +387,7 @@ strong { font-weight: 600; color: inherit; }
    SEVEN BREATHS (scripture / ritual)
    ===================================================================== */
 .breaths { background: var(--oxblood); color: var(--cream); padding: clamp(5rem, 11vh, 8.5rem) 0; }
-.breaths .bx-head { text-align: center; max-width: 30ch; margin: 0 auto clamp(2.5rem, 5vw, 4rem); }
+.breaths .bx-head { text-align: left; max-width: 56ch; margin: 0 0 clamp(2.5rem, 5vw, 4rem); }
 .breaths .bx-head h2 { color: #FBF1E2; font-size: clamp(2.4rem, 6vw, 4.6rem); font-weight: 500; margin: 0.6rem 0; }
 .breaths .bx-head p { color: rgba(244,234,217,0.78); font-size: 1.1rem; line-height: 1.6; }
 .verse {
@@ -394,7 +404,7 @@ strong { font-weight: 600; color: inherit; }
 .verse .vt { font-family: "Bodoni Moda", serif; font-size: clamp(1.7rem, 3.2vw, 2.6rem); color: #FBF1E2; line-height: 1; }
 .verse.final .vt { font-style: italic; color: var(--amber-3); }
 .verse .vd { font-size: 1.05rem; line-height: 1.55; color: rgba(244,234,217,0.8); margin-top: 0.6rem; max-width: 56ch; }
-.breaths .creed { text-align: center; margin-top: clamp(2.6rem, 5vw, 4rem); }
+.breaths .creed { text-align: left; margin-top: clamp(2.6rem, 5vw, 4rem); }
 .breaths .creed .gospel { font-family: "Bodoni Moda", serif; font-style: italic; font-size: clamp(1.9rem, 4.4vw, 3.2rem);
   color: var(--amber-3); line-height: 1.2; }
 
@@ -420,7 +430,7 @@ strong { font-weight: 600; color: inherit; }
    FAQ
    ===================================================================== */
 .faq { background: var(--paper); padding: clamp(4.5rem, 9vh, 7.5rem) 0; }
-.faq .faq-inner { max-width: 880px; margin-inline: auto; }
+.faq .faq-inner { width: min(880px, calc(100% - 2.6rem)); margin-inline: auto; }
 details.qa { border-bottom: 1px solid var(--line); }
 details.qa summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
   gap: 1.5rem; padding: 1.45rem 0; font-family: "Bodoni Moda", serif; font-size: clamp(1.3rem, 2.1vw, 1.65rem);
@@ -436,15 +446,47 @@ details.qa[open] .ans { max-height: 540px; }
 details.qa .ans p { margin: 0; padding: 0 0 1.6rem; font-size: 1.05rem; line-height: 1.72; color: var(--ink-body); max-width: 64ch; }
 
 /* =====================================================================
+   HOW IT WORKS — 3 simple steps (infomercial "it's this easy")
+   ===================================================================== */
+.how { background: var(--ivory); padding: clamp(4.5rem, 9vh, 7rem) 0; }
+.how .how-head { text-align: left; max-width: 60ch; margin: 0 0 clamp(2.4rem, 5vw, 3.6rem); }
+.how .how-head h2 { font-size: clamp(2rem, 4.6vw, 3.2rem); font-weight: 500; margin: 0.6rem 0 0.7rem; }
+.how .how-head p { color: var(--ink-mute); font-size: 1.06rem; line-height: 1.55; margin: 0; }
+.how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.2rem, 3vw, 2.2rem); }
+.how-step { position: relative; background: var(--paper); border: 1px solid var(--line-soft); border-radius: 4px;
+  padding: clamp(1.8rem, 3vw, 2.6rem); }
+.how-step .hs-n { font-family: "Bodoni Moda", serif; font-style: italic; font-size: clamp(2.4rem, 5vw, 3.6rem);
+  color: var(--amber); line-height: 0.9; }
+.how-step h3 { font-family: "Bodoni Moda", serif; font-size: clamp(1.35rem, 2.2vw, 1.7rem); font-weight: 500;
+  margin: 0.7rem 0 0.6rem; line-height: 1.1; }
+.how-step p { font-size: 1.02rem; line-height: 1.6; color: var(--ink-body); margin: 0; }
+.how-foot { text-align: left; margin-top: clamp(2.2rem, 4vw, 3rem); }
+
+/* value line under section heads */
+.valueline { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--mono);
+  font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber);
+  border: 1px solid var(--amber); border-radius: 50px; padding: 0.5rem 1.1rem; }
+.on-dark .valueline { color: var(--amber-3); border-color: rgba(228,173,167,0.5); }
+
+/* reassurance / risk-reversal band */
+.reassure { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 0.7rem 1.8rem;
+  margin: 1.8rem 0 0; max-width: 720px; }
+.reassure .ra { display: inline-flex; align-items: center; gap: 0.55rem; font-size: 0.86rem; font-weight: 600;
+  color: var(--ink-body); }
+.reassure .ra svg { width: 17px; height: 17px; color: var(--amber); flex: none; }
+.on-dark .reassure .ra { color: rgba(244,234,217,0.86); }
+.on-dark .reassure .ra svg { color: var(--amber-3); }
+
+/* =====================================================================
    FINAL COVER CTA
    ===================================================================== */
-.closer { position: relative; overflow: hidden; text-align: center; padding: clamp(5rem, 12vh, 9rem) 0;
+.closer { position: relative; overflow: hidden; text-align: left; padding: clamp(5rem, 12vh, 9rem) 0;
   background: radial-gradient(58% 55% at 50% 112%, rgba(196,94,110,0.24), transparent 64%), linear-gradient(180deg, var(--ivory), var(--ivory-2)); }
 .closer .wordmark { font-size: clamp(3rem, 13vw, 9rem); }
 .closer .affirm { font-family: "Bodoni Moda", serif; font-style: italic; font-size: clamp(1.5rem, 2.9vw, 2.1rem);
-  color: var(--oxblood); max-width: 24ch; margin: 1.6rem auto 1.6rem; line-height: 1.3; }
-.closer h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 500; max-width: 16ch; margin: 0 auto 1.4rem; }
-.closer .lead { font-size: clamp(1.1rem, 1.6vw, 1.24rem); line-height: 1.6; color: var(--ink-body); max-width: 46ch; margin: 0 auto 2.2rem; }
+  color: var(--oxblood); max-width: 24ch; margin: 1.6rem 0 1.6rem; line-height: 1.3; }
+.closer h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 600; max-width: 18ch; margin: 0 0 1.4rem; }
+.closer .lead { font-size: clamp(1.1rem, 1.6vw, 1.24rem); line-height: 1.6; color: var(--ink-body); max-width: 50ch; margin: 0 0 2.2rem; }
 
 /* =====================================================================
    COLOPHON / FOOTER
@@ -461,9 +503,104 @@ footer .fcopy { margin-top: 2.6rem; font-family: var(--mono); font-size: 0.66rem
 
 /* mobile sticky CTA */
 .m-cta { position: fixed; inset: auto 0 0 0; display: none; z-index: 80;
-  background: rgba(26,13,8,0.97); backdrop-filter: blur(8px); box-shadow: 0 -8px 28px -12px rgba(0,0,0,0.55); }
+  background: rgba(26,13,8,0.97); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: 0 -8px 28px -12px rgba(0,0,0,0.55); }
 .m-cta a { display: block; text-align: center; color: var(--cream); font-size: 0.74rem; font-weight: 800;
   letter-spacing: 0.2em; text-transform: uppercase; padding: 1.15rem; }
+
+/* =====================================================================
+   IDENTITY / OFFER BAR (stat-bar borrowed from high-converting pages)
+   ===================================================================== */
+.idbar { background: var(--noir-2); color: var(--cream); }
+.idbar .id-grid { display: grid; grid-template-columns: repeat(3, 1fr); width: min(var(--maxw), calc(100% - 3rem)); margin-inline: auto; }
+.idbar .id-cell { text-align: left; padding: clamp(1.6rem, 4vw, 2.6rem) clamp(1rem, 2.5vw, 1.8rem); border-left: 1px solid rgba(244,234,217,0.14); }
+.idbar .id-cell:first-child { border-left: none; }
+.idbar .id-n { font-family: "Bodoni Moda", serif; font-weight: 500; font-size: clamp(2.4rem, 5vw, 3.6rem); color: var(--amber-3); line-height: 1; }
+.idbar .id-t { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,234,217,0.72); margin-top: 0.6rem; }
+
+/* =====================================================================
+   THIS IS BLOOM — identity creed (the aspiration)
+   ===================================================================== */
+.creedx { background: var(--noir); color: var(--cream); padding: clamp(5rem, 12vh, 9rem) 0; position: relative; overflow: hidden; }
+.creedx .bignum { position: absolute; bottom: -3.5rem; left: 1vw; opacity: 0.38; }
+.creedx .label { display: block; margin-bottom: 1.8rem; }
+.creedx .cx-lead { font-family: "Bodoni Moda", serif; font-weight: 500; font-size: clamp(1.9rem, 4.2vw, 3.4rem); line-height: 1.12; letter-spacing: -0.015em; color: #FBF1E2; max-width: 20ch; }
+.creedx .cx-lead em { font-style: italic; color: var(--amber-3); }
+.creedx .cx-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; margin-top: clamp(2.2rem, 4vw, 3.4rem); }
+.creedx .cx-body p { font-size: 1.14rem; line-height: 1.75; color: rgba(244,234,217,0.85); margin: 0 0 1.2rem; max-width: 46ch; }
+.creedx .cx-body p strong { color: #FBF1E2; font-weight: 600; }
+.creedx .cx-mid { font-family: "Bodoni Moda", serif; font-style: italic; font-size: clamp(1.5rem, 2.8vw, 2.15rem); color: var(--amber-3); line-height: 1.3; border-left: 3px solid var(--amber); padding-left: 1.4rem; margin: 1.8rem 0 0; max-width: 30ch; }
+.creedx .cx-anti { list-style: none; padding: 0; margin: 0; }
+.creedx .cx-anti li { font-family: "Bodoni Moda", serif; font-size: clamp(1.35rem, 2.4vw, 1.85rem); color: #FBF1E2; padding: 0.78rem 0; border-bottom: 1px solid rgba(244,234,217,0.16); line-height: 1.18; }
+.creedx .cx-anti li:last-child { border-bottom: none; }
+.creedx .cx-anti li b { color: var(--amber-3); font-weight: 500; font-style: italic; }
+.creedx .cx-tagline { font-family: "Bodoni Moda", serif; font-style: italic; font-size: clamp(1.15rem, 2vw, 1.5rem); color: var(--amber-3); margin: 0.6rem 0 0; }
+.creedx .cx-anti-h { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber-3); margin-bottom: 0.9rem; }
+
+/* =====================================================================
+   COST OF WAITING — honest urgency
+   ===================================================================== */
+.costwait { background: var(--noir); color: #FBF1E2; text-align: left; padding: clamp(4.5rem, 10vh, 7rem) 0; }
+.costwait .cw-k { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--amber-3); }
+.costwait h2 { color: #FBF1E2; font-size: clamp(2.1rem, 4.8vw, 3.4rem); font-weight: 600; max-width: 22ch; margin: 1rem 0 1.2rem; }
+.costwait h2 em { font-style: italic; color: var(--amber-3); }
+.costwait p { color: rgba(244,234,217,0.86); font-size: clamp(1.08rem, 1.6vw, 1.22rem); line-height: 1.65; max-width: 54ch; margin: 0 0 2rem; }
+.btn--cream { background: var(--cream); color: var(--ink); }
+.btn--cream:hover { background: #FBF1E2; color: var(--ink); }
+
+/* =====================================================================
+   FROM QUADIA — founder note (authority / trust)
+   ===================================================================== */
+.founder { background: var(--noir); padding: clamp(4.5rem, 9vh, 7rem) 0; }
+.founder .fd-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.founder .fd-media { position: relative; }
+.founder .fd-media .ph { aspect-ratio: 0.84; width: 100%; box-shadow: var(--shadow); }
+.founder .fd-body h2 { color: #FBF1E2; font-size: clamp(2rem, 4.4vw, 3rem); font-weight: 600; margin: 0.7rem 0 1.3rem; max-width: 22ch; }
+.founder .fd-body p { font-size: clamp(1.06rem, 1.5vw, 1.18rem); line-height: 1.72; color: rgba(244,234,217,0.85); margin: 0 0 1.1rem; max-width: 58ch; }
+.founder .fd-body p strong { color: #FBF1E2; }
+.founder .fd-sign { font-family: "Bodoni Moda", serif; font-style: italic; font-size: 1.7rem; color: var(--amber-3); margin-top: 1.5rem; }
+
+/* =====================================================================
+   FEATURED QUOTE + DECLARATION (inside Seven Breaths)
+   ===================================================================== */
+.breaths .qfeature { max-width: 60ch; margin: 0 0 clamp(2.4rem, 5vw, 3.6rem); text-align: left; }
+.breaths .qfeature p { font-family: "Bodoni Moda", serif; font-style: italic; font-size: clamp(1.45rem, 3vw, 2.2rem);
+  color: #FBF1E2; line-height: 1.34; margin: 0; }
+.breaths .qfeature .qby { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--amber-3); margin-top: 1.2rem; }
+
+.breaths .decl { margin-top: clamp(2.6rem, 5vw, 4rem); display: grid; grid-template-columns: 0.86fr 1.14fr;
+  gap: clamp(1.6rem, 4vw, 3rem); align-items: center;
+  background: rgba(244,234,217,0.06); border: 1px solid rgba(244,234,217,0.2); border-radius: 6px;
+  padding: clamp(1.6rem, 3vw, 2.6rem); }
+.breaths .decl .decl-media { position: relative; }
+.breaths .decl .ph { aspect-ratio: 1.3; width: 100%; border-radius: 4px; }
+.breaths .decl .decl-badge { position: absolute; top: -14px; left: -14px; }
+.breaths .decl h3 { font-family: "Bodoni Moda", serif; font-weight: 500; font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+  color: #FBF1E2; line-height: 1.04; margin: 0.5rem 0 0.9rem; }
+.breaths .decl .decl-k { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber-3); }
+.breaths .decl p { font-size: 1.08rem; line-height: 1.65; color: rgba(244,234,217,0.85); margin: 0; max-width: 48ch; }
+.breaths .decl p strong { color: #FBF1E2; }
+
+/* =====================================================================
+   FOUNDING READER BONUS — audio
+   ===================================================================== */
+.bonus { background: var(--ivory); padding: clamp(4.5rem, 9vh, 7rem) 0; }
+.bonus-card { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: clamp(2rem, 5vw, 4rem); align-items: center;
+  background: linear-gradient(150deg, var(--paper), var(--cream)); border: 1px solid var(--line-soft); border-radius: 10px;
+  padding: clamp(1.8rem, 4vw, 3.4rem); box-shadow: var(--shadow-s); }
+.bonus-body .label { display: block; margin-bottom: 0.9rem; }
+.bonus-body h2 { font-size: clamp(2rem, 4.4vw, 3rem); font-weight: 500; margin: 0 0 1rem; max-width: 16ch; }
+.bonus-body p { font-size: clamp(1.05rem, 1.5vw, 1.18rem); line-height: 1.7; color: var(--ink-body); margin: 0 0 0.9rem; max-width: 54ch; }
+.bonus-body .bonus-note { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-top: 0.4rem; }
+.bonus-media { display: flex; justify-content: center; }
+.audio-card { width: 100%; max-width: 340px; background: var(--noir); border-radius: 12px; padding: 1.4rem 1.4rem 1.6rem; box-shadow: var(--shadow); }
+.audio-top { display: flex; align-items: center; gap: 1rem; }
+.audio-play { width: 46px; height: 46px; flex: none; border: none; border-radius: 50%; background: var(--amber); color: var(--cream); font-size: 0.95rem; display: grid; place-items: center; cursor: default; padding-left: 3px; }
+.audio-meta .audio-t { font-family: "Bodoni Moda", serif; font-style: italic; font-size: 1.15rem; color: #FBF1E2; }
+.audio-meta .audio-d { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244,234,217,0.62); margin-top: 0.25rem; }
+.waveform { display: flex; align-items: center; gap: 3px; height: 40px; margin-top: 1.2rem; }
+.waveform span { flex: 1; height: 100%; transform-origin: center; border-radius: 2px; background: linear-gradient(var(--amber-3), var(--amber)); opacity: 0.85; animation: wave 1.4s ease-in-out infinite; }
+@keyframes wave { 0%, 100% { transform: scaleY(0.28); } 50% { transform: scaleY(1); } }
 
 /* =====================================================================
    MOTION
@@ -486,13 +623,23 @@ footer .fcopy { margin-top: 2.6rem; font-family: var(--mono); font-size: 0.66rem
   .spread.flip .spread-grid { direction: ltr; }
   .spread-media { max-width: 460px; }
   .manifesto .mf-foot { grid-template-columns: 1fr; gap: 1.6rem; }
+  .creedx .cx-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .founder .fd-grid { grid-template-columns: 1fr; gap: 2.4rem; }
+  .founder .fd-media { max-width: 420px; }
+  .breaths .decl { grid-template-columns: 1fr; gap: 1.6rem; }
+  .breaths .decl .decl-media { max-width: 360px; }
+  .bonus-card { grid-template-columns: 1fr; gap: 1.8rem; }
 }
 @media (max-width: 760px) {
   .dp-grid { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr; }
+  .idbar .id-grid { grid-template-columns: 1fr; }
+  .idbar .id-cell { border-left: none; border-top: 1px solid rgba(244,234,217,0.14); }
+  .idbar .id-cell:first-child { border-top: none; }
   .v-grid { grid-template-columns: 1fr; }
   .v-grid .vbox, .v-grid .vbox:nth-child(n) { grid-column: span 1; }
   .masthead .mh-c { display: none; }
-  .masthead { grid-template-columns: 1fr auto; }
+  .mh-nav { grid-template-columns: 1fr auto; }
   footer .col-grid { grid-template-columns: 1fr; gap: 1.8rem; }
 }
 @media (max-width: 600px) {
@@ -512,6 +659,9 @@ footer .fcopy { margin-top: 2.6rem; font-family: var(--mono); font-size: 0.66rem
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   [data-parallax] { transform: none !important; }
   .ticker .track { animation: none; }
+  .mh-announce .mh-track { animation: none; transform: none; }
+  .instant .pulse { animation: none; }
+  .waveform span { animation: none; transform: scaleY(0.5); }
   .wordmark .breathe { animation: none; }
   .btn:hover, .btn--ghost:hover { transform: none; }
   .verse:hover { padding-left: 0; }
